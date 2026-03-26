@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emerald Nexus | Windows 11 Xbox Edition</title>
+    <link rel="icon" type="image/svg+xml" href="assets/icon/favicon.svg">
+    <link rel="mask-icon" href="assets/icon/favicon.svg" color="#00ff88">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+    <audio id="sfxExperience" src="https://www.myinstants.com/media/sounds/minecraft_xp_sound_effect.mp3"></audio>
+
+    <aside>
+        <div class="user-profile">
+            <i data-lucide="shield"></i>
+            <div>
+                <p style="font-size: 14px; font-weight: bold;">EMERALD_DEV</p>
+                <p style="font-size: 10px; opacity: 0.6;">Level 99 Architect</p>
+            </div>
+        </div>
+
+        <nav>
+    <div class="nav-group">
+        <span class="nav-label">Core Systems</span>
+        <a href="index.html" class="nav-item"><i data-lucide="layout-grid"></i> HUB</a>
+        <a href="admin.html" class="nav-item"><i data-lucide="settings"></i> ADMIN DASHBOARD</a>
+    </div>
+
+    <div class="nav-group">
+        <span class="nav-label">Bio-Sciences</span>
+        <a href="paleontology.html" class="nav-item"><i data-lucide="skull"></i> PALEONTOLOGY</a>
+        <a href="sea.html" class="nav-item">
+            <i data-lucide="fish"></i>
+            <span>SEA CREATURES</span>
+        </a>
+        <a href="paleo-dino.html" class="nav-item"><i data-lucide="bone"></i><span>PALEO-DINO</span></a>
+        <a href="botany.html" class="nav-item"><i data-lucide="leaf"></i>PALEO-BOTANY</a>
+        <a href="zoo.html" class="nav-item"><i data-lucide="paw-print"></i> ZOOLOGY</a>
+        <a href="aqua.html" class="nav-item"><i data-lucide="waves"></i> AQUATIC</a>
+    </div>
+
+    <div class="nav-group">
+        <span class="nav-label">Outer Space</span>
+        <a href="astro.html" class="nav-item"><i data-lucide="orbit"></i> ASTRONOMY</a>
+        <a href="galaxy.html" class="nav-item"><i data-lucide="milky-way"></i> GALAXY</a>
+    </div>
+</nav>
+    </aside>
+
+    <main>
+        <div class="search-container">
+            <input type="text" class="search-bar" id="searchInput" placeholder="Search Emerald Nexus..." onkeyup="handleSearch()">
+            <div class="suggestion-box" id="suggestBox"></div>
+        </div>
+
+        <div class="temporal-widget">
+    <div id="live-clock">00:00:00</div>
+    <div id="live-date">Loading Temporal Data...</div>
+</div>
+
+<div class="status-bar">
+    <div id="clock" class="digital-clock">00:00:00</div>
+    <div id="weather-hub" class="weather-container">
+        <span id="weather-icon">--</span>
+        <span id="temp-value">00</span>°C
+        <small id="location-name">Detecting...</small>
+    </div>
+</div>
+
+<div id="scannerLine" class="scanner-line"></div>
+
+<div id="notification-area" style="position: fixed; bottom: 220px; right: 30px; z-index: 1000; display: flex; flex-direction: column; gap: 10px;"></div>
+
+<main id="emerald-nexus-dino-archive" style="
+    position: relative; 
+    z-index: 1; /* Konten berada di layer dasar */
+    padding: 120px 20px 100px 20px; /* Padding atas-bawah agar tidak tertutup header/footer */
+    min-height: 150vh; /* Agar bisa di-scroll */
+">
+    
+    <h1 class="main-title" style="
+        text-align: center; 
+        font-family: 'Segoe UI', sans-serif; 
+        color: #50c878; 
+        letter-spacing: 5px; 
+        text-transform: uppercase;
+        margin-bottom: 50px;">
+        Emerald Nexus Dino Archive
+    </h1>
+
+    <div class="archive-grid" style="display: flex; flex-direction: column; gap: 40px; align-items: center;">
+        
+        <article class="info-card" style="
+            width: 100%;
+            max-width: 900px;
+            background: rgba(16, 52, 32, 0.4);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(80, 200, 120, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+            
+            <h2 style="color: #50c878; border-bottom: 1px solid #50c878; padding-bottom: 10px;">Apex Predator Genomics</h2>
+            <p style="line-height: 1.8; font-size: 1.1rem; color: #e0f2f1; text-align: justify;">
+                Analisis mendalam terhadap struktur genom Tyrannosaurus Rex mengungkapkan adaptasi evolusioner yang luar biasa dalam sistem sensorik dan biomekanik. Melalui komputasi tingkat tinggi di Emerald Nexus, data fosil diolah menjadi simulasi dinamis yang membantu peneliti memahami puncak rantai makanan di era Kapur.
+            </p>
+        </article>
+
+        <article class="info-card" style="
+            width: 100%;
+            max-width: 900px;
+            background: rgba(16, 52, 32, 0.4);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(80, 200, 120, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+            
+            <h2 style="color: #50c878; border-bottom: 1px solid #50c878; padding-bottom: 10px;">Preservation Protocol 2030</h2>
+            <p style="line-height: 1.8; font-size: 1.1rem; color: #e0f2f1; text-align: justify;">
+                Protokol pelestarian digital di Emerald Nexus dirancang untuk mengamankan data biometrik purba dalam infrastruktur cloud yang terdesentralisasi. Dengan mengoptimalkan teknologi visual glassmorphism, antarmuka ini memberikan kejernihan data tanpa membebani performa perangkat keras.
+            </p>
+        </article>
+
+    </div>
+
+<div class="dino-section" style="margin-top: 50px; padding: 20px;">
+    <h3 style="color: #50c878; font-family: 'Orbitron', sans-serif; margin-bottom: 25px; border-bottom: 1px solid rgba(80, 200, 120, 0.3); display: inline-block;">Penguasa Daratan Purba</h3>
+    
+    <div class="mini-card-grid" style="display: flex; gap: 15px; overflow-x: auto; padding-bottom: 20px; scrollbar-width: thin; scrollbar-color: #50c878 transparent;">
+        
+        <div class="mini-card" onclick="openTimeline('Tyrannosaurus Rex', 'Mesozoikum (Kapur Akhir)', '68 - 66 Juta Tahun Lalu', '95%')">
+            <div class="mini-img-wrapper">
+                <img src="assets/img/t-rex.webp" alt="T-Rex" loading="lazy" onerror="this.src='assets/img/logo_emerald.png';">
+            </div>
+            <h4 class="mini-title">T-Rex</h4>
+            <p class="mini-text">Raja predator. Memiliki gigitan terkuat di darat.</p>
+        </div>
+
+        <div class="mini-card" onclick="openTimeline('Triceratops', 'Mesozoikum (Kapur Akhir)', '68 - 66 Juta Tahun Lalu', '90%')">
+            <div class="mini-img-wrapper">
+                <img src="assets/img/triceratops.webp" alt="Triceratops" loading="lazy" onerror="this.src='assets/img/logo_emerald.png';">
+            </div>
+            <h4 class="mini-title">Triceratops</h4>
+            <p class="mini-text">Herbivora bercula tiga dengan perisai tulang leher.</p>
+        </div>
+
+        <div class="mini-card" onclick="openTimeline('Stegosaurus', 'Mesozoikum (Jura Akhir)', '155 - 150 Juta Tahun Lalu', '60%')">
+            <div class="mini-img-wrapper">
+                <img src="assets/img/stego.webp" alt="Stegosaurus" loading="lazy" onerror="this.src='assets/img/logo_emerald.png';">
+            </div>
+            <h4 class="mini-title">Stegosaurus</h4>
+            <p class="mini-text">Dinosaurus berpunggung lempeng dan ekor berduri.</p>
+        </div>
+
+        <div class="mini-card" onclick="openTimeline('Brachiosaurus', 'Mesozoikum (Jura Akhir)', '154 - 153 Juta Tahun Lalu', '65%')">
+            <div class="mini-img-wrapper">
+                <img src="assets/img/brachio.webp" alt="Brachiosaurus" loading="lazy" onerror="this.src='assets/img/logo_emerald.png';">
+            </div>
+            <h4 class="mini-title">Brachiosaurus</h4>
+            <p class="mini-text">Raksasa leher panjang, mencapai tinggi gedung 4 lantai.</p>
+        </div>
+
+        <div class="mini-card" onclick="openTimeline('Velociraptor', 'Mesozoikum (Kapur Akhir)', '75 - 71 Juta Tahun Lalu', '85%')">
+            <div class="mini-img-wrapper">
+                <img src="assets/img/velociraptor.webp" alt="Velociraptor" loading="lazy" onerror="this.src='assets/img/logo_emerald.png';">
+            </div>
+            <h4 class="mini-title">Velociraptor</h4>
+            <p class="mini-text">Predator cerdas dan cepat dengan cakar sabit mematikan.</p>
+        </div>
+
+    </div>
+</div>
+</main>
+
+<div class="audio-popup" id="audioPopup" style="z-index: 999; position: fixed; bottom: 20px; right: 20px;">
+    <div class="audio-container" style="background: rgba(10, 20, 10, 0.7); backdrop-filter: blur(15px); border: 1px solid rgba(80, 200, 120, 0.3); padding: 20px; border-radius: 20px; width: 300px; display: flex; align-items: center; gap: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+        
+        <div class="vinyl-wrapper">
+            <div id="vinyl" class="vinyl-record">
+                <div class="vinyl-center"></div>
+            </div>
+        </div>
+
+        <div class="track-details" style="flex: 1; overflow: hidden;">
+            <h4 id="trackTitle" style="margin: 0; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #50c878;">Initializing...</h4>
+            <p style="margin: 0; font-size: 10px; opacity: 0.6; letter-spacing: 1px;">SYSTEM AUDIO</p>
+            
+            <div id="progressContainer" class="progress-area" style="width: 100%; height: 5px; background: rgba(255,255,255,0.1); border-radius: 5px; margin: 10px 0; cursor: pointer; position: relative;">
+                <div id="progressBar" style="width: 0%; height: 100%; background: #50c878; border-radius: 5px; box-shadow: 0 0 10px #50c878;"></div>
+            </div>
+            
+            <div class="time-display" style="display: flex; justify-content: space-between; font-size: 9px; font-family: monospace;">
+                <span id="currentTime">0:00</span>
+                <span id="totalDuration">0:00</span>
+            </div>
+        </div>
+
+        <div class="controls" style="display: flex; flex-direction: column; gap: 10px;">
+            <button onclick="nextTrack()" title="Next" style="background:none; border:none; color:white; cursor:pointer;"><i data-lucide="skip-forward" size="18"></i></button>
+            <button onclick="togglePlay()" id="playBtn" style="background: #50c878; border:none; border-radius: 50%; width: 32px; height: 32px; color: black; cursor:pointer; display: flex; align-items: center; justify-content: center;"><i data-lucide="play" size="18"></i></button>
+            <button onclick="prevTrack()" title="Previous" style="background:none; border:none; color:white; cursor:pointer;"><i data-lucide="skip-back" size="18"></i></button>
+        </div>
+    </div>
+</div>
+
+<audio id="mainAudio" preload="metadata"></audio>
+
+<footer style="margin-top: 30px; padding: 20px; 
+        background: rgba(10, 20, 10, 0.6); 
+        backdrop-filter: blur(15px); 
+        border-top: 2px solid rgba(0, 255, 136, 0.3); 
+        border-radius: 20px 20px 0 0; 
+        color: rgba(255, 255, 255, 0.7); 
+        display: flex; justify-content: space-between; align-items: center; 
+        font-family: 'Segoe UI', sans-serif; font-size: 12px;
+        box-shadow: 0 -10px 30px rgba(0,0,0,0.3);">
+        
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <i data-lucide="shield-check" style="color: #00ff88; width: 18px;"></i>
+            <div>
+                <span style="color: #00ff88; font-weight: bold;">EMERALD NEXUS CORE v4.2.1</span>
+                <span style="margin: 0 10px; opacity: 0.3;">|</span>
+                <span>All Dimensions Stable. © 2026 Sovereign Anwarhu.</span>
+            </div>
+        </div>
+
+        <div style="font-size: 10px; font-family: monospace; letter-spacing: 2px; opacity: 0.6;">
+            [ NW | 106.8°E -6.2°S ] Jakarta Sector
+        </div>
+
+        <div style="display: flex; gap: 15px; align-items: center;">
+            <a href="index.HTML" style="color: inherit; text-decoration: none; display: flex; align-items: center; gap: 5px; transition: 0.3s;" 
+               onmouseover="this.style.color='#00ff88'" onmouseout="this.style.color='inherit'">
+               <i data-lucide="layout-grid" size="16"></i> HUB
+            </a>
+            <span style="opacity: 0.3;">|</span>
+            <div style="display: flex; align-items: center; gap: 8px; font-weight: bold; color: #00ff88;">
+                <i data-lucide="layers-3" size="16"></i> UNITY SYNC: OK
+            </div>
+            <span style="opacity: 0.3;">|</span>
+            <button onclick="logoutAdmin()" style="background: none; border: 1px solid #ff4444; color: #ff4444; border-radius: 5px; padding: 3px 10px; cursor: pointer; transition: 0.3s;"
+                onmouseover="this.style.background='rgba(255, 68, 68, 0.2)'" onmouseout="this.style.background='none'">
+                LOGOUT
+            </button>
+        </div>
+
+    </footer>
+    </main>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="js/paleo.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+</html>
