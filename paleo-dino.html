@@ -11,6 +11,45 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
+   <style>
+      /* Animasi untuk Overlay (Latar Belakang Hitam Transparan) */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Animasi untuk Konten Modal (Kotak Glassmorphism) */
+@keyframes zoomIn {
+    from { 
+        transform: scale(0.8); 
+        opacity: 0; 
+    }
+    to { 
+        transform: scale(1); 
+        opacity: 1; 
+    }
+}
+
+.modal-overlay {
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content {
+    animation: zoomIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efek sedikit membal (bounce) */
+}
+
+/* Hover effect untuk card agar lebih interaktif */
+.mini-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.mini-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(80, 200, 120, 0.4);
+}
+   </style>
+
 <body>
 
     <audio id="sfxExperience" src="https://www.myinstants.com/media/sounds/minecraft_xp_sound_effect.mp3"></audio>
@@ -178,6 +217,106 @@
 </div>
 </main>
 
+       <div id="dinoModal" class="modal-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(8px); z-index: 9999; justify-content: center; align-items: center; padding: 20px;">
+    <div class="modal-content" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 20px; padding: 30px; max-width: 500px; width: 100%; color: white; box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); text-align: center; position: relative;">
+        
+        <button onclick="closeModal()" style="position: absolute; top: 15px; right: 15px; background: none; border: none; color: #50c878; font-size: 24px; cursor: pointer;">&times;</button>
+        
+        <h2 id="modalTitle" style="color: #50c878; font-family: 'Orbitron', sans-serif; margin-bottom: 10px;"></h2>
+        <div style="height: 2px; background: linear-gradient(90deg, transparent, #50c878, transparent); margin-bottom: 20px;"></div>
+        
+        <div style="text-align: left; background: rgba(0, 0, 0, 0.2); padding: 15px; border-radius: 10px; font-size: 0.9rem; line-height: 1.6;">
+            <p><strong>Era:</strong> <span id="modalEra"></span></p>
+            <p><strong>Waktu Hidup:</strong> <span id="modalTime"></span></p>
+            <p><strong>Kelengkapan Fosil:</strong> <span id="modalAcuracy"></span></p>
+        </div>
+
+        <p style="margin-top: 20px; font-size: 0.85rem; color: #a5f3fc;">Tekan <strong>ESC</strong> untuk menutup jendela ini.</p>
+    </div>
+</div>
+
+       <main style="padding: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #ffffff;">
+
+    <div class="sauropod-header" style="margin-top: 30px; margin-bottom: 40px; max-width: 900px;">
+        <h2 style="color: #50c878; font-family: 'Orbitron', sans-serif; font-size: 2.2rem; margin-bottom: 15px;">Raksasa Sauropoda</h2>
+        <p style="line-height: 1.8; color: #e0e0e0; font-size: 1.1rem; text-align: justify;">
+            Sauropoda adalah kelompok dinosaurus saurischian herbivora yang dikenal karena ukurannya yang sangat besar, leher dan ekor yang sangat panjang, kepala kecil, serta kaki berbentuk pilar yang menyerupai gajah. Muncul pertama kali pada periode Trias Akhir dan mendominasi daratan selama periode Jura hingga Kapur, mereka merupakan hewan darat terbesar yang pernah berjalan di muka Bumi, dengan struktur tubuh yang dirancang untuk menjangkau vegetasi tinggi di pepohonan purba.
+        </p>
+    </div>
+
+    <div class="dino-section" style="margin-top: 20px; padding: 10px; background: rgba(255, 255, 255, 0.05); border-radius: 15px; backdrop-filter: blur(10px);">
+        <h3 style="color: #50c878; font-family: 'Orbitron', sans-serif; margin-bottom: 25px; border-bottom: 2px solid rgba(80, 200, 120, 0.3); display: inline-block; padding-bottom: 5px;">Daftar Sauropoda Terkemuka</h3>
+        
+        <div class="mini-card-grid" style="display: flex; gap: 20px; overflow-x: auto; padding-bottom: 25px; scrollbar-width: thin; scrollbar-color: #50c878 transparent;">
+            
+            <div class="mini-card" onclick="openTimeline('Argentinosaurus', 'Kapur Akhir', '96 - 94 Juta Tahun Lalu', '100%')">
+                <div class="mini-img-wrapper">
+                    <img src="argentino.webp" alt="Argentinosaurus" loading="lazy" onerror="this.src='assets/img/logo_emerald.png';">
+                </div>
+                <h4 class="mini-title">Argentinosaurus</h4>
+                <p class="mini-text">Kandidat hewan darat terbesar yang pernah ada, mencapai panjang 35-40 meter.</p>
+            </div>
+
+            <div class="mini-card" onclick="openTimeline('Brachiosaurus', 'Jura Akhir', '154 - 153 Juta Tahun Lalu', '95%')">
+                <div class="mini-img-wrapper">
+                    <img src="brachio.webp" alt="Brachiosaurus" loading="lazy" onerror="this.src='assets/img/logo_emerald.png';">
+                </div>
+                <h4 class="mini-title">Brachiosaurus</h4>
+                <p class="mini-text">Berdiri tegak dengan kaki depan lebih panjang, mirip jerapah purba.</p>
+            </div>
+
+            <div class="mini-card" onclick="openTimeline('Diplodocus', 'Jura Akhir', '154 - 152 Juta Tahun Lalu', '90%')">
+                <div class="mini-img-wrapper">
+                    <img src="diplodocus.webp" alt="Diplodocus" loading="lazy" onerror="this.src='assets/img/logo_emerald.png';">
+                </div>
+                <h4 class="mini-title">Diplodocus</h4>
+                <p class="mini-text">Memiliki ekor yang sangat panjang dan tipis seperti cambuk untuk pertahanan.</p>
+            </div>
+
+            <div class="mini-card" onclick="openTimeline('Apatosaurus', 'Jura Akhir', '152 - 151 Juta Tahun Lalu', '88%')">
+                <div class="mini-img-wrapper">
+                    <img src="apatosaurus.webp" alt="Apatosaurus" loading="lazy" onerror="this.src='assets/img/logo_emerald.png';">
+                </div>
+                <h4 class="mini-title">Apatosaurus</h4>
+                <p class="mini-text">Sauropoda bertubuh kekar yang sebelumnya dikenal luas sebagai Brontosaurus.</p>
+            </div>
+
+            <div class="mini-card" onclick="openTimeline('Patagotitan', 'Kapur Awal', '101 - 100 Juta Tahun Lalu', '98%')">
+                <div class="mini-img-wrapper">
+                    <img src="patagotitan.webp" alt="Patagotitan" loading="lazy" onerror="this.src='assets/img/logo_emerald.png';">
+                </div>
+                <h4 class="mini-title">Patagotitan</h4>
+                <p class="mini-text">Titanosaurus raksasa dari Patagonia yang memiliki bobot setara 12 gajah Afrika.</p>
+            </div>
+
+            <div class="mini-card" onclick="openTimeline('Amargasaurus', 'Kapur Awal', '129 - 122 Juta Tahun Lalu', '75%')">
+                <div class="mini-img-wrapper">
+                    <img src="amarga.webp" alt="Amargasaurus" loading="lazy" onerror="this.src='assets/img/logo_emerald.png';">
+                </div>
+                <h4 class="mini-title">Amargasaurus</h4>
+                <p class="mini-text">Unik dengan dua baris duri panjang di sepanjang leher dan punggungnya.</p>
+            </div>
+
+            <div class="mini-card" onclick="openTimeline('Dreadnoughtus', 'Kapur Akhir', '77 Juta Tahun Lalu', '92%')">
+                <div class="mini-img-wrapper">
+                    <img src="dreadnoughtus.webp" alt="Dreadnoughtus" loading="lazy" onerror="this.src='assets/img/logo_emerald.png';">
+                </div>
+                <h4 class="mini-title">Dreadnoughtus</h4>
+                <p class="mini-text">Namanya berarti "tidak takut apapun", karena ukurannya yang masif dan tak terkalahkan.</p>
+            </div>
+
+            <div class="mini-card" onclick="openTimeline('Saltasaurus', 'Kapur Akhir', '70 Juta Tahun Lalu', '70%')">
+                <div class="mini-img-wrapper">
+                    <img src="salta.webp" alt="Saltasaurus" loading="lazy" onerror="this.src='assets/img/logo_emerald.png';">
+                </div>
+                <h4 class="mini-title">Saltasaurus</h4>
+                <p class="mini-text">Sauropoda kecil yang unik karena memiliki lempeng tulang pelindung di kulitnya.</p>
+            </div>
+
+        </div>
+    </div>
+</main>
+
 <div class="audio-popup" id="audioPopup" style="z-index: 999; position: fixed; bottom: 20px; right: 20px;">
     <div class="audio-container" style="background: rgba(10, 20, 10, 0.7); backdrop-filter: blur(15px); border: 1px solid rgba(80, 200, 120, 0.3); padding: 20px; border-radius: 20px; width: 300px; display: flex; align-items: center; gap: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
         
@@ -252,6 +391,42 @@
 
     </footer>
     </main>
+
+   <script>
+      // Fungsi untuk membuka Modal dan mengisi data
+function openTimeline(name, era, time, accuracy) {
+    const modal = document.getElementById('dinoModal');
+    
+    // Isi data ke elemen modal
+    document.getElementById('modalTitle').innerText = name;
+    document.getElementById('modalEra').innerText = era;
+    document.getElementById('modalTime').innerText = time;
+    document.getElementById('modalAcuracy').innerText = accuracy;
+    
+    // Tampilkan modal dengan Flex
+    modal.style.display = 'flex';
+}
+
+// Fungsi untuk menutup Modal
+function closeModal() {
+    document.getElementById('dinoModal').style.display = 'none';
+}
+
+// Fitur khusus pengguna laptop (Keyboard Shortcut)
+document.addEventListener('keydown', function(event) {
+    if (event.key === "Escape") {
+        closeModal();
+    }
+});
+
+// Menutup modal jika area luar kotak diklik
+window.onclick = function(event) {
+    const modal = document.getElementById('dinoModal');
+    if (event.target == modal) {
+        closeModal();
+    }
+}
+   </script>
 
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="paleo.js"></script>
