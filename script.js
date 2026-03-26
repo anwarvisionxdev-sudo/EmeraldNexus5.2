@@ -10,27 +10,27 @@
 const playlist = [
     { 
         name: "Yesterday", 
-        src: "assets/music/Yesterday.mp3", 
-        cover: "assets/thumbnail/yesterday.jpg" // Contoh Gambar Retro
+        src: "Yesterday.mp3", 
+        cover: "yesterday.jpg" // Contoh Gambar Retro
     },
     { 
         name: "Over Quartzer", 
-        src: "assets/music/Over quartzer.mp3", 
-        cover: "assets/thumbnail/over.jpg" // THUMBNAIL GINGA!
+        src: "Over quartzer.mp3", 
+        cover: "over.jpg" // THUMBNAIL GINGA!
     },
     { 
         name: "Starlight", 
-        src: "assets/music/Starlight.mp3", 
-        cover: "assets/thumbnail/starlight.jpg" 
+        src: "Starlight.mp3", 
+        cover: "starlight.jpg" 
     },
     { 
         name: "Be The one", 
-        src: "assets/music/Be the One.mp3", 
-        cover: "assets/thumbnail/build.jpg" // Build Thumbnail
+        src: "Be the One.mp3", 
+        cover: "build.jpg" // Build Thumbnail
     },
     { 
         name: "Mice on Venus", 
-        src: "assets/music/C418 mice on venus.mp3", 
+        src: "C418 mice on venus.mp3", 
         cover: "https://th.bing.com/th/id/OIP.G6W_X8R0_Y9Z1X2R3Z4H5AAAAA?pid=ImgDet" // Minecraft Thumbnail
     }
 ];
